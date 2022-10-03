@@ -1,0 +1,35 @@
+.cabecera {
+    align-items: center;
+    background: #af8e8e;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+}
+
+.titulo{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
+
+
+@media screen and (min-width: 0) {
+    .cabecera {
+        justify-content: center;
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .cabecera {
+        justify-content: space-between;
+        padding: 0 5rem;
+    }
+}

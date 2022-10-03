@@ -1,0 +1,33 @@
+@media screen and (min-width: 0) {
+ 
+    body {
+        background-image: url('/imagenes/papel_fondo.jpg');
+        background-repeat: repeat-y;
+        background-size: cover
+    }
+
+    #silenciar {
+        
+        float:right;
+        margin-right: 1%;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border-width: 0;
+        background-color: rgb(206, 201, 201);
+        
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .control-volumen{
+    
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+ 
+}

@@ -1,0 +1,19 @@
+@media screen and (min-width: 0) {
+    .logo {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .logo {
+        display: block;
+    }
+
+    .logo > img {
+        width: 15%;
+        height: 15%;
+    }
+}
+
+
