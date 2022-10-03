@@ -1,5 +1,5 @@
-import { dibujarCirculo, dibujarLinea, dibujarOjosEnCruz, dibujarRectangulo } from "../../utils/dibujar.js";
-import { cargarSonido } from "../../utils/cargarSonido.js"
+import { dibujarCirculo, dibujarLinea, dibujarOjosEnCruz, dibujarRectangulo } from "./../../utils/dibujar.js";
+import { cargarSonido } from "./../../utils/cargarSonido.js"
 let errores = 0;
 let aciertos = 0;
 let palabraAAdivinar = '';

@@ -1,4 +1,4 @@
-import { cargarSonido } from '../../utils/cargarSonido.js';
+import { cargarSonido } from './../../utils/cargarSonido.js';
 import { menu } from './main/menu.js'
 
 export const main = () => {
