@@ -79,11 +79,11 @@ window.addEventListener("load", () => {
 
       for (i=0; i < palabraAAdivinar.length; i++){
                
-        if(palabraAAdivinar[i] == 'á') palabraModificada[i] = 'a';
-        else if(palabraAAdivinar[i] == 'é') palabraModificada[i] = 'e';
-        else if(palabraAAdivinar[i] == 'í') palabraModificada[i] = 'i';
-        else if(palabraAAdivinar[i] == 'ó') palabraModificada[i] = 'o';
-        else if(palabraAAdivinar[i] == 'ú') palabraModificada[i] = 'u';
+        if(palabraAAdivinar[i] == 'á') palabraModificada.replace('á', 'a');
+        else if(palabraAAdivinar[i] == 'é') palabraModificada.replace('é','e');
+        else if(palabraAAdivinar[i] == 'í') palabraModificada.replace('í','i');
+        else if(palabraAAdivinar[i] == 'ó') palabraModificada.replace('ó', 'o');
+        else if(palabraAAdivinar[i] == 'ú') palabraModificada.replace('ú', 'u');
 
         palabraNormalizada = palabraModificada;
         
