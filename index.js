@@ -299,7 +299,7 @@ const menuJugarNuevamente = () => {
     iniciarJuego();
   });
   botonTerminar.addEventListener("click", () => {
-    window.location = "/index.html";
+    window.location = "/juego-ahorcado";
   });
   divMenu.appendChild(botonJugarNuevamente);
   divMenu.appendChild(botonTerminar);
