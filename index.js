@@ -9,8 +9,9 @@ let silenciar;
 
 window.addEventListener("load", () => {
   root = document.getElementById("root");
-  root.appendChild(header("imagenes/logo.png", "El ahorcadito"));
-  root.appendChild(main());
+  wrapper = document.getElementById("wrapper");
+  wrapper.appendChild(header("imagenes/logo.png", "El ahorcadito"));
+  wrapper.appendChild(main());
   root.appendChild(footer());
 });
 
