@@ -1,0 +1,22 @@
+.pie-de-pagina {
+    background: #000000;
+    margin-top: 10%;
+    width: 100%;
+    bottom: 0;
+    color: #fdfdfd;
+    text-transform: lowercase;
+    
+
+}
+
+.contacto, .copyright{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+
+
+
+
+
