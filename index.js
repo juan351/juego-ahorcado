@@ -1,6 +1,7 @@
 let errores = 0;
 let aciertos = 0;
 let palabraAAdivinar = "";
+let palabraNormalizada = "";
 let mammaMia;
 let sonido;
 let win;
@@ -13,7 +14,7 @@ window.addEventListener("load", () => {
   root.appendChild(footer());
 });
 
-export const main = () => {
+ const main = () => {
   let musicaOn = true;
   const toggle = () =>
     musicaOn
@@ -22,7 +23,7 @@ export const main = () => {
   const reproduccion = () => (musicaOn ? sonido.play() : sonido.pause());
 
   let principal = document.createElement("main");
-  const sonido = cargarSonido("../../audios/Surrounded-by-the-Enemy.mp3");
+  const sonido = cargarSonido("./audios/Surrounded-by-the-Enemy.mp3");
   const silenciar = document.createElement("button");
   silenciar.classList.add("hidden");
   silenciar.setAttribute("id", "silenciar");
@@ -43,7 +44,7 @@ export const main = () => {
   return principal;
 };
 
-export const menu = () => {
+ const menu = () => {
   let panel = document.createElement("article");
   panel.classList.add("menu");
 
@@ -62,10 +63,10 @@ export const menu = () => {
   return panel;
 };
 
-export const iniciarJuego = () => {
+ const iniciarJuego = () => {
   sonido = document.getElementById("/Surrounded-by-the-Enemy.mp3");
-  mammaMia = cargarSonido("../../audios/mamma-mia.mp3");
-  win = cargarSonido("../../audios/reggaedrum_01_167a.wav");
+  mammaMia = cargarSonido("./audios/mamma-mia.mp3");
+  win = cargarSonido("./audios/reggaedrum_01_167a.wav");
 
   silenciar = document.getElementById("silenciar");
   silenciar.classList.toggle("hidden");
@@ -73,6 +74,20 @@ export const iniciarJuego = () => {
 
   let palabra = buscarPalabra().then((palabra) => {
     try {
+      palabraAAdivinar = palabra["body"]["Word"];
+      let palabraModificada = palabraAAdivinar;
+
+      for (i=0; i < palabraAAdivinar.length; i++){
+               
+        if(palabraAAdivinar[i] == 'á') palabraModificada[i] = 'a';
+        else if(palabraAAdivinar[i] == 'é') palabraModificada[i] = 'e';
+        else if(palabraAAdivinar[i] == 'í') palabraModificada[i] = 'i';
+        else if(palabraAAdivinar[i] == 'ó') palabraModificada[i] = 'o';
+        else if(palabraAAdivinar[i] == 'ú') palabraModificada[i] = 'u';
+
+        palabraNormalizada = palabraModificada;
+        
+      }
       jugar(palabra["body"]["Word"]);
     } catch (error) {
       jugar("supercalifragilisticoespialidoso");
@@ -91,8 +106,8 @@ export const iniciarJuego = () => {
   }
 };
 
-export const jugar = (palabra) => {
-  palabraAAdivinar = palabra;
+ const jugar = (palabra) => {
+  
 
   let cantidadLetras = palabra.length;
 
@@ -230,10 +245,10 @@ const compararLetras = (letra) => {
   let palabra = palabraAAdivinar;
 
   for (i = 0; i < palabra.length; i++) {
-    if (palabra[i] == letra) {
+    if (palabraNormalizada[i] == letra) {
       aciertos++;
       letraEncontrada = true;
-      document.getElementById(`${i}`).textContent = letra;
+      document.getElementById(`${i}`).textContent = palabra[i];
     }
   }
 
@@ -285,7 +300,7 @@ const menuJugarNuevamente = () => {
   return divMenu;
 };
 
-export const header = (logo, titulo) => {
+ const header = (logo, titulo) => {
 
   let cabecera = document.createElement("header");
   cabecera.classList.add("cabecera")
@@ -317,7 +332,7 @@ export const header = (logo, titulo) => {
 };
 
 
-export const footer = () => {
+ const footer = () => {
 
   let pie_de_pagina = document.createElement("footer");
   pie_de_pagina.classList.add("pie-de-pagina");
@@ -337,7 +352,7 @@ export const footer = () => {
   return pie_de_pagina;
 }
 
-export const cargarSonido = fuente =>{
+ const cargarSonido = fuente =>{
   const sonido = document.createElement("audio");
   sonido.src = fuente;
   sonido.setAttribute("preload", "auto");
@@ -349,7 +364,7 @@ export const cargarSonido = fuente =>{
   return sonido;
 }
 
-export const dibujarCirculo = (ctx, x, y, color) => {
+ const dibujarCirculo = (ctx, x, y, color) => {
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(x,y,25,0,2*3.14);
@@ -357,7 +372,7 @@ export const dibujarCirculo = (ctx, x, y, color) => {
 
 }
 
-export const dibujarLinea = (ctx, inicialX, inicialY, finalX, finalY, color) => {
+ const dibujarLinea = (ctx, inicialX, inicialY, finalX, finalY, color) => {
   ctx.beginPath();
   ctx.moveTo(inicialX,inicialY)
   ctx.lineTo(finalX,finalY);
@@ -365,12 +380,12 @@ export const dibujarLinea = (ctx, inicialX, inicialY, finalX, finalY, color) => 
   ctx.stroke();
 }
 
-export const dibujarRectangulo = (ctx, x, y, base, altura, color) => {
+ const dibujarRectangulo = (ctx, x, y, base, altura, color) => {
   ctx.fillStyle=color;
   ctx.fillRect(x, y, base, altura);
 }
 
-export const dibujarOjosEnCruz = (ctx, xOjo1, yOjo1, xOjo2, yOjo2, color, largo) => {
+ const dibujarOjosEnCruz = (ctx, xOjo1, yOjo1, xOjo2, yOjo2, color, largo) => {
   
   dibujarLinea(ctx, xOjo1, yOjo1, xOjo1 + largo, yOjo1 +largo, color);
   dibujarLinea(ctx, xOjo1 + largo, yOjo1, xOjo1, yOjo1 +largo, color);
