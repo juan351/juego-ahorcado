@@ -76,7 +76,7 @@ const iniciarJuego = () => {
 
   let palabra = buscarPalabra().then((palabra) => {
     try {
-      palabraAAdivinar = palabra["body"]["Word"];
+      palabraAAdivinar = palabra[0];
       let palabraModificada = palabraAAdivinar;
 
       for (let i = 0; i < palabraAAdivinar.length; i++) {
@@ -93,7 +93,7 @@ const iniciarJuego = () => {
       }
 
       palabraNormalizada = palabraModificada;
-      jugar(palabra["body"]["Word"]);
+      jugar(palabra[0]);
     } catch (error) {
       jugar("supercalifragilisticoespialidoso");
     }
