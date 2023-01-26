@@ -26,7 +26,7 @@ export const iniciarJuego = () => {
 
   buscarPalabra().then((palabra) => {
     try {
-      palabraAAdivinar = palabra["body"]["Word"];
+      palabraAAdivinar = palabra[0];
       let palabraModificada = palabraAAdivinar;
 
       for (let i = 0; i < palabraAAdivinar.length; i++) {
@@ -54,7 +54,7 @@ export const iniciarJuego = () => {
   async function buscarPalabra() {
     try {
       const response = await fetch(
-        "https://palabras-aleatorias-public-api.herokuapp.com/random"
+        "https://clientes.api.greenborn.com.ar/public-random-word"
       );
       return response.json();
     } catch (error) {
