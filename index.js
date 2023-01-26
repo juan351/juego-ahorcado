@@ -102,7 +102,7 @@ const iniciarJuego = () => {
   async function buscarPalabra() {
     try {
       const response = await fetch(
-        "https://palabras-aleatorias-public-api.herokuapp.com/random"
+        "https://clientes.api.greenborn.com.ar/public-random-word"
       );
       return response.json();
     } catch (error) {
